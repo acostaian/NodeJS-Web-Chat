@@ -8,9 +8,13 @@
     <title>Chat</title>
 </head>
 <body>
-    <h1>Test</h1>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur voluptas reprehenderit mollitia magnam cupiditate debitis odio veritatis illo non, corrupti, fugiat vitae quisquam. Incidunt inventore numquam iste excepturi recusandae quisquam!
-    <script src="socket.io/socket.io.js"></script>
-    <script type="module" src="js/app.js"></script>
+    <h1>Chat</h1>
+
+    <textarea id="chatText" cols="200" rows="50" readonly="true" style="resize:none" wrap="soft"></textarea>
+    <br>
+    <input id="chatInput" type="text">
+    <button id="chatSend">Enviar</button>   
 </body>
+<script src="socket.io/socket.io.js"></script>
+<script type="module" src="js/app.js"></script>
 </html>

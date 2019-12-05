@@ -1,5 +1,10 @@
 import { Chat } from "./Chat.js";
 
-const chat = new Chat();
+let chatText = document.getElementById("chatText");
+let chatInput = document.getElementById("chatInput");
+const chatSend = document.getElementById("chatSend");
 
-chat.sendMessage("TEST");
+const chat = new Chat(chatText, chatInput, chatSend); // Abro la conexion con el chat
+
+chatSend.addEventListener("click", () => chat.send());
+
