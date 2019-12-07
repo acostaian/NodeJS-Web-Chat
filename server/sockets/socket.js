@@ -1,5 +1,7 @@
 const { io } = require('../server');
 
+let chatList = [];
+
 io.on('connection', (client) => {
     console.log(`Usuario conectado`);
 
@@ -8,17 +10,12 @@ io.on('connection', (client) => {
     });
 
     // Escuchar el cliente
-    client.on('sendMessage', (data, callback) => {
-        console.log(`${data.user}: ${data.message}`);
-
-        client.broadcast.emit('sendMessage', data); // BROADCAST es para que todos lo reciban
-
-        //callback("Mensaje Recibido por el Servidor");
+    client.on('sendMessage', (msg, callback) => {
+        chatList.push(msg);                          // Actualizo la lista de chats
+        callback(chatList);                          // Devuelvo la lista actualizada                   
+        client.broadcast.emit('sendChat', chatList); // Envio la lista a los demas usuarios
     });
 
     // Emitir mensajes
-    client.emit('sendMessage', {
-        user: "Server",
-        message: "Server message"
-    })
+    client.emit('sendChat', chatList);
 });

@@ -10,7 +10,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "start"
+    "test": "start",
+    "dev": "nodemon server/server",
+    "start": "node server/server"
   },
   "author": "Acosta Ian",
   "license": "ISC"

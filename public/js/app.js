@@ -1,4 +1,4 @@
-import { Chat } from "./Chat.js";
+import { Chat } from "./Classes/Chat.js";
 
 let chatText = document.getElementById("chatText");
 let chatInput = document.getElementById("chatInput");
